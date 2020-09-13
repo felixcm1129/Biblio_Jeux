@@ -1,0 +1,40 @@
+﻿<Window x:Class="Biblio_Jeux.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Biblio_Jeux"
+        mc:Ignorable="d"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        Title="MainWindow" Height="800" Width="800">
+    <Grid HorizontalAlignment="Left" Width="400" Height="700">
+        <Grid Margin="405,0,-405,0">
+            <Label Content="Titre :" HorizontalAlignment="Left" Margin="30,51,0,0" VerticalAlignment="Top" Width="100" Height="25" FontWeight="Bold" FontSize="12"/>
+            <TextBox HorizontalAlignment="Left" Margin="214,51,0,0" Text="{Binding JeuxCourrant.titre}" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Height="50"/>
+
+            <Label Content="Description :" HorizontalAlignment="Left" Margin="30,132,0,0" VerticalAlignment="Top" Height="25" Width="100" FontWeight="Bold"/>
+            <TextBox HorizontalAlignment="Left" Margin="30,182,0,0" Text="{Binding JeuxCourrant.description}" TextWrapping="Wrap" VerticalAlignment="Top" Width="334" Height="100"/>
+
+            <Label Content="Éditeur :" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Center" Width="100" Height="50"/>
+            <TextBox HorizontalAlignment="Left" Margin="214,0,0,0" Text="{Binding JeuxCourrant.éditeur}" TextWrapping="Wrap" VerticalAlignment="Center" Width="150" Height="50"/>
+
+            <Label Content="Année :" HorizontalAlignment="Left" Margin="30,400,0,0" VerticalAlignment="Top" Width="100" Height="25" FontWeight="Bold"/>
+            <TextBox HorizontalAlignment="Left" Margin="214,400,0,0" Text="{Binding JeuxCourrant.année}" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Height="50"/>
+
+            <Label Content="Console :" HorizontalAlignment="Left" Margin="30,484,0,0" VerticalAlignment="Top" Width="100" Height="25" FontWeight="Bold"/>
+
+            <Label Content="Côte :" HorizontalAlignment="Left" Margin="30,564,0,0" VerticalAlignment="Top" Width="100" Height="25" FontWeight="Bold"/>
+            <Slider HorizontalAlignment="Left" Margin="214,564,0,0" VerticalAlignment="Top" Width="150" Height="50" Value="{Binding JeuxCourrant.côte}" Minimum="0" Maximum="100" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="0"/>
+            <ComboBox HorizontalAlignment="Left" Margin="214,484,0,0" VerticalAlignment="Top" Width="150" Height="25" SelectedItem="{Binding JeuxCourrant.console}">
+                <ComboBoxItem Content="PC"/>
+                <ComboBoxItem Content="Xbox"/>
+                <ComboBoxItem Content="PS4"/>
+                <ComboBoxItem Content="Switch"/>
+            </ComboBox>
+
+        </Grid>
+        <Image HorizontalAlignment="Left" Height="500" Margin="64,32,0,0" VerticalAlignment="Top" Width="300" Source="{Binding JeuxCourrant.pochette}"/>
+        <ScrollBar x:Name="ScrollBar" HorizontalAlignment="Left" Margin="64,578,0,0" VerticalAlignment="Top" Width="300" Height="35" Orientation="Horizontal" ValueChanged="ScrollBar_ValueChanged" Maximum="{Binding MaxIndex}" SmallChange="1" LargeChange="1"/>
+    </Grid>
+
+</Window>
